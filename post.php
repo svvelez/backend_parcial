@@ -6,7 +6,7 @@ if (!$jsonGasto) {
     exit("No hay datos");
 }
 $bd = include_once "bd.php";
-$sentencia = $bd->prepare("insert into centro_medico_hemo_hearth_diabetes (nombre, apellido, cedula, eps, sintomas, diagnostivo, nivel) values (?,?,?,?,?,?,?)");
+$sentencia = $bd->prepare("insert into centro_medico_hemo_hearth_diabetes (nombre, apellido, cedula, eps, sintomas, diagnostico, nivel) values (?,?,?,?,?,?,?)");
 $resultado = $sentencia->execute([$jsonGasto->nombre, $jsonGasto->apellido, $jsonGasto->cedula, $jsonGasto->eps, $jsonGasto->sintomas, $jsonGasto->diagnostico, $jsonGasto->nivel]);
 echo json_encode([
     "resultado" => $resultado,
